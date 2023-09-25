@@ -5,18 +5,29 @@
 #include <iostream>
 #include <vector>
 #include "Acteurs.h";
+#include "Films.h";
 
 using namespace std;
 
-struct Film_s
-{
-	int ID; // commence a 1
-	string NomFilm;
-	string Directeur;
-	int IDPrincipal;
-	int IDSecondaire;
-};
-
 extern const string CompagnieDeProduction = "ACME Films";
 
-static int IdFilm = 0;
+static int IdFilm = 1;
+
+vector <Film_s> ListeFilms;
+
+void AjouterFilm(string NomDuFilm, string NomDuDirecteur, int IDActeurPrincipal, int IDActeurSecondaire)
+{
+	Film_s NouvelFilm = { IdFilm, NomDuFilm, NomDuDirecteur, IDActeurPrincipal, IDActeurSecondaire };
+	ListeFilms.push_back(NouvelFilm);
+	IdFilm++;
+}
+
+void AfficherFilms()
+{
+	cout << "\n\nLISTE FILMS\n";
+	for (int i = 0; i < ListeFilms.size(); i++)
+	{
+		cout << ListeFilms[i].ID << "\t" << ListeFilms[i].NomFilm <<"\t"<< ListeFilms[i].Directeur << "\t" << TrouverActeur(ListeFilms[i].IDPrincipal).NomComplet << "\t" << TrouverActeur(ListeFilms[i].IDSecondaire).NomComplet << "\n";
+	}
+
+}

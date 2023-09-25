@@ -10,7 +10,7 @@ using namespace std;
 
 int ActeurDernierOscar = 0;
 
-static int IdActeur = 1;
+static int IdActeur = 9000;
 
 Acteur_s ActeurPrincipal;
 Acteur_s ActeurSecondaire;
@@ -35,5 +35,11 @@ void AfficheActeurs()
 
 Acteur_s TrouverActeur(int IdTrouver)
 {
-	return ListeActeurs[IdTrouver];
+	for (int i = 0; i < ListeActeurs.size(); i++)
+	{
+		if (ListeActeurs[i].ID == IdTrouver)
+		{
+			return ListeActeurs[i];
+		}
+	}
 }

@@ -16,6 +16,6 @@ struct Acteur_s
 void AjouterActeur(string NomActeur);
 void AfficheActeurs();
 Acteur_s TrouverActeur(int IdTrouver);
-void AjouterFilm(&NomFilm, &Directeur, &IDPrincipal, &IDSecondaire)
+
 
 #endif
